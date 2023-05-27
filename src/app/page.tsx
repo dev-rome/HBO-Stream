@@ -22,7 +22,7 @@ export default function Home() {
             height={130}
             alt="HBO Max"
           />
-          <span className="text-2xl font-light text-[#f8f9fa]">
+          <span className="text-2xl font-light text-color-secondary">
             Who is Watching?
           </span>
         </div>
@@ -35,14 +35,14 @@ export default function Home() {
               height={125}
               className="rounded-full object-cover mb-4 cursor-pointer"
             />
-            <p className="text-[#f8f9fa]">Jerome</p>
+            <p className="text-color-secondary">Jerome</p>
           </div>
         </div>
         <div className="flex gap-5 mb-8">
           <button
             onMouseEnter={() => handleMouseEnter("adult")}
             onFocus={() => handleMouseEnter("adult")}
-            className={`bg-zinc-50/[.2] text-[#f8f9fa] uppercase font-bold rounded-2xl w-32 h-9 ${
+            className={`bg-zinc-50/[.2] text-color-secondary uppercase font-bold rounded-2xl w-32 h-9 ${
               activeButton === "adult" ? "opacity-100" : "opacity-40"
             }`}
           >
@@ -51,7 +51,7 @@ export default function Home() {
           <button
             onMouseEnter={() => handleMouseEnter("kid")}
             onFocus={() => handleMouseEnter("kid")}
-            className={`bg-zinc-50/[.2] text-[#f8f9fa] font-bold uppercase rounded-2xl w-32 h-9 ${
+            className={`bg-zinc-50/[.2] text-color-secondary font-bold uppercase rounded-2xl w-32 h-9 ${
               activeButton === "kid" ? "opacity-100" : "opacity-40"
             }`}
           >
