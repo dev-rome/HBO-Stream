@@ -10,7 +10,9 @@ const SideNavItem = ({ title, href, activeItem, onClick }: NavItemProps) => {
     <li className="mb-2 last:mb-0" onClick={onClick}>
       <a
         className={`${
-          activeItem ? "text-[#868e96]" : "text-[#f8f9fa] hover:text-[#868e96]"
+          activeItem
+            ? "text-color-tertiary"
+            : "text-color-secondary hover:text-color-tertiary"
         } transition-colors duration-500 ease-in-out hover:font-medium}`}
         href={href}
       >

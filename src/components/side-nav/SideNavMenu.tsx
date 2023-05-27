@@ -48,7 +48,7 @@ const SideNavMenu = () => {
     <AnimatePresence>
       {showSideNav && (
         <motion.nav
-          className="absolute top-0 left-0 z-20 min-h-screen bg-[#212529] p-11"
+          className="fixed top-0 left-0 z-20 min-h-screen bg-color-primary p-11"
           initial="closed"
           animate="open"
           exit="closed"
@@ -56,7 +56,7 @@ const SideNavMenu = () => {
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <AiOutlineClose
-            className="absolute top-2 left-56 text-xl text-[#f8f9fa] cursor-pointer"
+            className="absolute top-2 left-56 text-xl text-color-secondary cursor-pointer"
             onClick={toggleSideNav}
           />
           <ul className="w-44">
