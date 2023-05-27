@@ -8,8 +8,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "background-home":
-          "linear-gradient(312deg, #0f2027, #203a43, #2c5364)"
+        "background-home": "linear-gradient(312deg, #0f2027, #203a43, #2c5364)",
+        "background-movie":
+          "linear-gradient(180deg, rgba(94, 158, 255, 0) 60%, rgba(68, 61, 156, 0.8) 100%)",
+        "background-movie-poster":
+          "linear-gradient(to bottom right, #667eea, #764ba2)",
+      },
+      colors: {
+        "color-primary": "#212529",
+        "color-secondary": "#f8f9fa",
+        "color-tertiary": "#868e96",
       },
     },
   },
