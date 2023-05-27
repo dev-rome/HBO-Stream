@@ -1,7 +1,13 @@
+import FeaturedMedia from "@/src/components/ui/FeaturedMedia";
+import ForYouList from "@/src/components/ui/ForYouList";
+
 function HomePage() {
-    return ( <div>
-        <h1>Home</h1>
-    </div> );
+  return (
+    <>
+      <FeaturedMedia />
+      <ForYouList />
+    </>
+  );
 }
 
 export default HomePage;

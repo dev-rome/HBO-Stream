@@ -1,11 +1,12 @@
-import Header from "@/src/components/Header";
+import Header from "@/src/components/ui/Header";
 import SideNavMenu from "@/src/components/side-nav/SideNavMenu";
 
-function HomePageLayout() {
+function HomePageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="min-h-screen bg-orange-700">
+    <section className="min-h-screen bg-color-primary">
       <Header />
       <SideNavMenu />
+      {children}
     </section>
   );
 }
