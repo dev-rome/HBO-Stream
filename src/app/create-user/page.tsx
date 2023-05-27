@@ -22,7 +22,7 @@ export default function CreateUser() {
             height={130}
             alt="HBO Max"
           />
-          <span className="text-2xl font-light text-[#f8f9fa]">
+          <span className="text-2xl font-light text-color-secondary">
             Who is Watching?
           </span>
         </div>
@@ -36,10 +36,10 @@ export default function CreateUser() {
               className="rounded-full object-cover mb-4 cursor-pointer"
             />
             <form className="flex flex-col justify-center gap-4">
-              <label className="text-xs text-[#f8f9fa]">Name</label>
+              <label className="text-xs text-color-secondary">Name</label>
               <input
                 type="text"
-                className="w-[18.75rem] bg-transparent border-0 border-b-2 border-[#f8f9fa] outline-none caret-[#f8f9fa] text-[#f8f9fa] py-3 mb-8"
+                className="w-[18.75rem] bg-transparent border-0 border-b-2 border-color-secondary outline-none caret-color-secondary text-color-secondary py-3 mb-8"
               />
             </form>
           </div>
@@ -48,7 +48,7 @@ export default function CreateUser() {
           <button
             onMouseEnter={() => handleMouseEnter("cancel")}
             onFocus={() => handleMouseEnter("cancel")}
-            className={`bg-zinc-50/[.2] text-[#f8f9fa] uppercase font-bold rounded-2xl w-32 h-9 ${
+            className={`bg-zinc-50/[.2] text-color-secondary uppercase font-bold rounded-2xl w-32 h-9 ${
               activeButton === "cancel" ? "opacity-100" : "opacity-40"
             }`}
           >
@@ -57,7 +57,7 @@ export default function CreateUser() {
           <button
             onMouseEnter={() => handleMouseEnter("save")}
             onFocus={() => handleMouseEnter("save")}
-            className={`bg-zinc-50/[.2] text-[#f8f9fa] font-bold uppercase rounded-2xl w-32 h-9 ${
+            className={`bg-zinc-50/[.2] text-color-secondary font-bold uppercase rounded-2xl w-32 h-9 ${
               activeButton === "save" ? "opacity-100" : "opacity-40"
             }`}
           >
