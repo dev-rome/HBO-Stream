@@ -5,26 +5,25 @@ import { createContext, useState } from "react";
 interface MenuContextProps {
   showSideNav: boolean;
   showAccountSideNav: boolean;
-  toggleSideNav: () => void;
-  toggleAccountSideNav: () => void;
+  showSearchModal: boolean;
+  toggleSideNav?: () => void;
+  toggleAccountSideNav?: () => void;
+  toggleSearchModal?: () => void;
 }
 
-interface MenuProviderProps {
-  children: React.ReactNode;
-}
 // Defines a default value for the menu context
 const defaultMenuContext: MenuContextProps = {
-  showSideNav: false, // Default value for showing side navigation
+  showSideNav: false,
   showAccountSideNav: false,
-  toggleSideNav: () => {}, // Default placeholder function for toggling side navigation
-  toggleAccountSideNav: () => {},
+  showSearchModal: false,
 };
 
 const MenuContext = createContext<MenuContextProps>(defaultMenuContext);
 
-const MenuProvider = ({ children }: MenuProviderProps) => {
+const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [showSideNav, setShowSideNav] = useState<boolean>(false);
   const [showAccountSideNav, setShowAccountSideNav] = useState<boolean>(false);
+  const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
 
   const toggleSideNav = () => {
     setShowSideNav((prevValue) => !prevValue);
@@ -34,13 +33,19 @@ const MenuProvider = ({ children }: MenuProviderProps) => {
     setShowAccountSideNav((prevValue) => !prevValue);
   };
 
+  const toggleSearchModal = () => {
+    setShowSearchModal((prevValue) => !prevValue);
+  };
+
   return (
     <MenuContext.Provider
       value={{
         showSideNav,
         showAccountSideNav,
+        showSearchModal,
         toggleSideNav,
         toggleAccountSideNav,
+        toggleSearchModal,
       }}
     >
       {children}
