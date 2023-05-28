@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
-import SideNavItem from "@/src/components/side-nav/SideNavItem";
+import NavItem from "@/src/components/side-nav/NavItem";
 import useMenuContext from "@/src/hooks/useMenuContext";
 
 const SideNavMenu = () => {
@@ -13,6 +13,7 @@ const SideNavMenu = () => {
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);
+    toggleSideNav?.()
   };
 
   const variants = {
@@ -23,25 +24,25 @@ const SideNavMenu = () => {
   // Define the top and bottom items for the navigation menu.
   const navItemsTop = [
     { title: "Home", href: "/" },
-    { title: "Series", href: "/" },
-    { title: "Movies", href: "/" },
-    { title: "Originals", href: "/" },
-    { title: "Just Added", href: "/" },
-    { title: "Last Chance", href: "/" },
-    { title: "Coming Soon", href: "/" },
-    { title: "Trending Now", href: "/" },
+    { title: "Series", href: "" },
+    { title: "Movies", href: "" },
+    { title: "Originals", href: "" },
+    { title: "Just Added", href: "" },
+    { title: "Last Chance", href: "" },
+    { title: "Coming Soon", href: "" },
+    { title: "Trending Now", href: "" },
   ];
 
   const navItemsBottom = [
-    { title: "Action", href: "/" },
-    { title: "Animation", href: "/" },
-    { title: "Comedy", href: "/" },
-    { title: "Crime", href: "/" },
-    { title: "Documentaries", href: "/" },
-    { title: "Drama", href: "/" },
-    { title: "Fantasy & Sci-Fi", href: "/" },
-    { title: "Horror", href: "/" },
-    { title: "International", href: "/" },
+    { title: "Action", href: "" },
+    { title: "Animation", href: "" },
+    { title: "Comedy", href: "" },
+    { title: "Crime", href: "" },
+    { title: "Documentaries", href: "" },
+    { title: "Drama", href: "" },
+    { title: "Fantasy & Sci-Fi", href: "" },
+    { title: "Horror", href: "" },
+    { title: "International", href: "" },
   ];
 
   return (
@@ -61,7 +62,7 @@ const SideNavMenu = () => {
           />
           <ul className="w-44">
             {navItemsTop.map(({ title, href }) => (
-              <SideNavItem
+              <NavItem
                 key={title}
                 title={title}
                 href={href}
@@ -73,7 +74,7 @@ const SideNavMenu = () => {
           <hr className="border-t-2 border-gray-200 my-5" />
           <ul className="w-44">
             {navItemsBottom.map(({ title, href }) => (
-              <SideNavItem
+              <NavItem
                 key={title}
                 title={title}
                 href={href}
