@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        "calc-height": "calc(100vh - 3.75rem)",
+      },
+      width: {
+        "calc-width": "calc(100vw - 4.375rem)",
+      },
       backgroundImage: {
         "background-home": "linear-gradient(312deg, #0f2027, #203a43, #2c5364)",
         "background-movie":
