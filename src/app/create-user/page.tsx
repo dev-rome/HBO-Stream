@@ -2,16 +2,25 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import useHBOContext from "@/src/hooks/useHBOContext";
 
 export default function CreateUser() {
   const [activeButton, setActiveButton] = useState<string>("save");
+
+  const hboContext = useHBOContext();
+  const newUser = hboContext?.user || "";
+  const createUser = hboContext?.createUser || (() => {});
 
   const handleMouseEnter = (buttonName: string) => {
     setActiveButton(buttonName);
   };
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    createUser(e);
+  };
+
   return (
-    <section className="background-main-gradient">
+    <section className="bg-background-main-gradient">
       <div className="flex flex-col justify-between items-center h-screen">
         <div className="flex flex-col items-center gap-4 mt-8">
           <Image
@@ -37,6 +46,8 @@ export default function CreateUser() {
               <label className="text-xs text-color-secondary">Name</label>
               <input
                 type="text"
+                value={newUser}
+                onChange={handleOnChange}
                 className="w-[18.75rem] bg-transparent border-0 border-b-2 border-color-secondary outline-none caret-color-secondary text-color-secondary py-3 mb-8"
               />
             </form>
