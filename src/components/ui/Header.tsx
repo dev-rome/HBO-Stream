@@ -4,13 +4,26 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import Image from "next/image";
 import useMenuContext from "@/src/hooks/useMenuContext";
+import Account from "@/src/components/ui/Account";
+import SideNavMenu from "@/src/components/side-nav/SideNavMenu";
+import SearchModal from "@/src/components/ui/SearchModal";
 
 const Header = () => {
-  // Extracting toggleSideNav values from the menu context
-  const { toggleSideNav } = useMenuContext() || {};
-  // Invokes the toggleSideNav function if it exists or true
+  const menuContext = useMenuContext();
+  const toggleSideNav = menuContext?.toggleSideNav || (() => {});
+  const toggleAccountSideNav = menuContext?.toggleAccountSideNav || (() => {});
+  const toggleSearchModal = menuContext?.toggleSearchModal || (() => {});
+  
   const handleOpenMenuClick = () => {
     toggleSideNav?.();
+  };
+
+  const handleOpenAccountClick = () => {
+    toggleAccountSideNav?.();
+  };
+
+  const handleOpenSearchClick = () => {
+    toggleSearchModal?.();
   };
 
   return (
@@ -20,7 +33,7 @@ const Header = () => {
           className="cursor-pointer"
           onClick={handleOpenMenuClick}
         />
-        <HiOutlineSearch className="icon" />
+        <HiOutlineSearch className="cursor-pointer" onClick={handleOpenSearchClick} />
       </div>
       <Image
         src="/assets/images/logo.svg"
@@ -34,10 +47,14 @@ const Header = () => {
           alt="User account image"
           width={30}
           height={30}
-          className="rounded-full"
+          className="rounded-full cursor-pointer"
+          onClick={handleOpenAccountClick}
         />
         <p>Jerome</p>
       </div>
+      <Account />
+      <SideNavMenu />
+      <SearchModal />
     </header>
   );
 };
