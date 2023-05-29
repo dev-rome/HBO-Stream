@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <motion.section
-      className="relative bg-background-main bg-center bg-cover bg-no-repeat h-screen"
+      className="relative bg-background-main-image bg-center bg-cover bg-no-repeat h-screen"
       variants={variants}
       initial="initial"
       animate="animate"
