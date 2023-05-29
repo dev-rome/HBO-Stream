@@ -1,12 +1,12 @@
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
-import useMenuContext from "@/src/hooks/useMenuContext";
+import useHBOContext from "@/src/hooks/useHBOContext";
 
 const SearchModal = () => {
-  const menuContext = useMenuContext();
-  const showSearchModal = menuContext?.showSearchModal || false;
-  const toggleSearchModal = menuContext?.toggleSearchModal || (() => {});
+  const hboContext = useHBOContext();
+  const showSearchModal = hboContext?.showSearchModal || false;
+  const toggleSearchModal = hboContext?.toggleSearchModal || (() => {});
 
   const testLoop = (Component: () => JSX.Element, limit: number) => {
     let output = [];
