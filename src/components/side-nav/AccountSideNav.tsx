@@ -7,7 +7,8 @@ import NavItem from "@/src/components/side-nav/NavItem";
 const AccountSideNav = () => {
   const [activeItem, setActiveItem] = useState<string>("My List");
 
-  const { toggleAccountSideNav } = useMenuContext() || {};
+  const menuContext = useMenuContext();
+  const toggleAccountSideNav = menuContext?.toggleAccountSideNav || (() => {});
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);

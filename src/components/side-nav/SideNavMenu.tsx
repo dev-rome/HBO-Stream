@@ -8,12 +8,13 @@ import useMenuContext from "@/src/hooks/useMenuContext";
 
 const SideNavMenu = () => {
   const [activeItem, setActiveItem] = useState<string>("Home");
-  // Extracting showSideNav and toggleSideNav values from the menu context
-  const { showSideNav, toggleSideNav } = useMenuContext() || {};
+  const menuContext = useMenuContext();
+  const showSideNav = menuContext?.showSideNav || false;
+  const toggleSideNav = menuContext?.toggleSideNav || (() => {});
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);
-    toggleSideNav?.()
+    toggleSideNav?.();
   };
 
   const variants = {
@@ -21,7 +22,6 @@ const SideNavMenu = () => {
     closed: { opacity: 0, x: "-100%" },
   };
 
-  // Define the top and bottom items for the navigation menu.
   const navItemsTop = [
     { title: "Home", href: "/" },
     { title: "Series", href: "" },
