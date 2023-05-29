@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { MenuProvider } from "@/src/context/menu";
+import { HBOStreamProvider } from "@/src/context/HBOProvider";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MenuProvider>{children}</MenuProvider>
+        <HBOStreamProvider>{children}</HBOStreamProvider>
       </body>
     </html>
   );
