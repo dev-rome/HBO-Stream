@@ -3,16 +3,16 @@
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import Image from "next/image";
-import useMenuContext from "@/src/hooks/useMenuContext";
+import useHBOContext from "@/src/hooks/useHBOContext";
 import Account from "@/src/components/ui/Account";
 import SideNavMenu from "@/src/components/side-nav/SideNavMenu";
 import SearchModal from "@/src/components/ui/SearchModal";
 
 const Header = () => {
-  const menuContext = useMenuContext();
-  const toggleSideNav = menuContext?.toggleSideNav || (() => {});
-  const toggleAccountSideNav = menuContext?.toggleAccountSideNav || (() => {});
-  const toggleSearchModal = menuContext?.toggleSearchModal || (() => {});
+  const hboContext = useHBOContext();
+  const toggleSideNav = hboContext?.toggleSideNav || (() => {});
+  const toggleAccountSideNav = hboContext?.toggleAccountSideNav || (() => {});
+  const toggleSearchModal = hboContext?.toggleSearchModal || (() => {});
   
   const handleOpenMenuClick = () => {
     toggleSideNav?.();
