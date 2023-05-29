@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import useMenuContext from "@/src/hooks/useMenuContext";
+import useHBOContext from "@/src/hooks/useHBOContext";
 import NavItem from "@/src/components/side-nav/NavItem";
 
 const AccountSideNav = () => {
   const [activeItem, setActiveItem] = useState<string>("My List");
 
-  const hboContext = useMenuContext();
+  const hboContext = useHBOContext();
   const toggleAccountSideNav = hboContext?.toggleAccountSideNav || (() => {});
 
   const handleActiveItemClick = (item: string) => {
