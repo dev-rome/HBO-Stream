@@ -14,7 +14,9 @@ module.exports = {
         "calc-width": "calc(100vw - 4.375rem)",
       },
       backgroundImage: {
-        "background-home": "linear-gradient(312deg, #0f2027, #203a43, #2c5364)",
+        "background-main-image": "url('/assets/images/stream.jpg')",
+        "background-main-gradient":
+          "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(62,56,139,1) 45%, rgba(22,18,37,1) 100%);",
         "background-movie":
           "linear-gradient(180deg, rgba(94, 158, 255, 0) 60%, rgba(68, 61, 156, 0.8) 100%)",
         "background-movie-poster":
