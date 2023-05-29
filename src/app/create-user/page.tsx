@@ -11,7 +11,7 @@ export default function CreateUser() {
   };
 
   return (
-    <section className="bg-background-user">
+    <section className="background-main-gradient">
       <div className="flex flex-col justify-between items-center h-screen">
         <div className="flex flex-col items-center gap-4 mt-8">
           <Image
