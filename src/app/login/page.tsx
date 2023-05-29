@@ -11,7 +11,7 @@ export default function Login() {
   };
 
   return (
-    <section className="background-main-gradient">
+    <section className="bg-background-main-gradient">
       <div className="flex flex-col justify-between items-center h-screen">
         <div className="flex flex-col content-center items-center gap-4 mt-8">
           <Image
