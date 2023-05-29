@@ -8,9 +8,9 @@ import useMenuContext from "@/src/hooks/useMenuContext";
 
 const SideNavMenu = () => {
   const [activeItem, setActiveItem] = useState<string>("Home");
-  const menuContext = useMenuContext();
-  const showSideNav = menuContext?.showSideNav || false;
-  const toggleSideNav = menuContext?.toggleSideNav || (() => {});
+  const hboContext = useMenuContext();
+  const showSideNav = hboContext?.showSideNav || false;
+  const toggleSideNav = hboContext?.toggleSideNav || (() => {});
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);
