@@ -13,9 +13,13 @@ const FeaturedMedia = () => {
         className="absolute z-[1] scale-150"
       ></iframe>
       <div className="absolute w-full h-full z-[2] bg-background-movie flex items-end px-12 opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-100">
-        <div className="">
-          <h2 className="text-6xl text-color-secondary font-bold mb-4">The Movie</h2>
-          <p className="text-sm text-color-secondary font-bold mb-2">Now Playing.</p>
+        <div className="content-wrapper">
+          <h2 className="text-6xl text-color-secondary font-bold mb-4">
+            The Movie
+          </h2>
+          <p className="text-sm text-color-secondary font-bold mb-2">
+            Now Playing.
+          </p>
           <p className="text-sm text-color-secondary font-bold mb-2">
             In theaters now and on HBO MAX.
           </p>
