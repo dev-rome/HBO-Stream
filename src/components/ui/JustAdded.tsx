@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 import Image from "next/image";
 
-const ForYouList = () => {
+const JustAdded = () => {
   const testLoop = (Component: () => JSX.Element, limit: number) => {
     let output = [];
     for (let i = 0; i < limit; i++) {
@@ -12,9 +12,9 @@ const ForYouList = () => {
 
   const ListItem = () => (
     <div>
-      <div className="w-60 h-40 relative">
+      <div className="relative w-[300px] h-[400px]">
         <img
-          className="w-60 h-40 object-cover object-center"
+          className="w-[300px] h-[400px] object-cover object-center"
           src="https://placehold.co/600x400"
           alt="Placeholder description"
         />
@@ -29,12 +29,12 @@ const ForYouList = () => {
 
   return (
     <div className="py-5 pl-4 lg:pl-12">
-      <h3 className="text-color-secondary font-medium mb-4">For You</h3>
+      <h3 className="text-color-secondary font-medium mb-4">Just Added</h3>
       <div className="min-w-full w-calc-width flex flex-nowrap gap-3 overflow-x-scroll no-scrollbar">
-      {testLoop(ListItem, 10)}
+        {testLoop(ListItem, 10)}
       </div>
     </div>
   );
 };
 
-export default ForYouList;
+export default JustAdded;
