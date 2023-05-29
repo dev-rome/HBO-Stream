@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import MenuContext from "@/src/context/menu";
+import HBOContext from "@/src/context/HBOProvider";
 
-const useMenuContext = () => {
-  return useContext(MenuContext);
+const useHBOContext = () => {
+  return useContext(HBOContext);
 };
 
-export default useMenuContext;
+export default useHBOContext;
