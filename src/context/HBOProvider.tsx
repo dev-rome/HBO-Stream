@@ -2,7 +2,7 @@
 
 import { createContext, useState } from "react";
 
-interface MenuContextProps {
+interface HBOContextProps {
   showSideNav: boolean;
   showAccountSideNav: boolean;
   showSearchModal: boolean;
@@ -12,15 +12,15 @@ interface MenuContextProps {
 }
 
 // Defines a default value for the menu context
-const defaultMenuContext: MenuContextProps = {
+const defaultHBOContext: HBOContextProps = {
   showSideNav: false,
   showAccountSideNav: false,
   showSearchModal: false,
 };
 
-const MenuContext = createContext<MenuContextProps>(defaultMenuContext);
+const HBOContext = createContext<HBOContextProps>(defaultHBOContext);
 
-const MenuProvider = ({ children }: { children: React.ReactNode }) => {
+const HBOStreamProvider = ({ children }: { children: React.ReactNode }) => {
   const [showSideNav, setShowSideNav] = useState<boolean>(false);
   const [showAccountSideNav, setShowAccountSideNav] = useState<boolean>(false);
   const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
@@ -38,7 +38,7 @@ const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <MenuContext.Provider
+    <HBOContext.Provider
       value={{
         showSideNav,
         showAccountSideNav,
@@ -49,9 +49,9 @@ const MenuProvider = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
-    </MenuContext.Provider>
+    </HBOContext.Provider>
   );
 };
 
-export { MenuProvider };
-export default MenuContext;
+export { HBOStreamProvider };
+export default HBOContext;
