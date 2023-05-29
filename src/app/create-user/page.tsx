@@ -6,14 +6,12 @@ import Image from "next/image";
 export default function CreateUser() {
   const [activeButton, setActiveButton] = useState<string>("save");
 
-  // handleMouseEnter is a function that sets the active button based on the button the mouse has entered
-  // Possible values for buttonName are 'cancel' and 'save'.
   const handleMouseEnter = (buttonName: string) => {
     setActiveButton(buttonName);
   };
 
   return (
-    <section className="bg-background-home">
+    <section className="bg-background-user">
       <div className="flex flex-col justify-between items-center h-screen">
         <div className="flex flex-col items-center gap-4 mt-8">
           <Image
@@ -48,7 +46,7 @@ export default function CreateUser() {
           <button
             onMouseEnter={() => handleMouseEnter("cancel")}
             onFocus={() => handleMouseEnter("cancel")}
-            className={`bg-zinc-50/[.2] text-color-secondary uppercase font-bold rounded-2xl w-32 h-9 ${
+            className={`bg-color-secondary text-color-primary uppercase font-bold rounded-2xl w-32 h-9 ${
               activeButton === "cancel" ? "opacity-100" : "opacity-40"
             }`}
           >
@@ -57,7 +55,7 @@ export default function CreateUser() {
           <button
             onMouseEnter={() => handleMouseEnter("save")}
             onFocus={() => handleMouseEnter("save")}
-            className={`bg-zinc-50/[.2] text-color-secondary font-bold uppercase rounded-2xl w-32 h-9 ${
+            className={`bg-color-secondary text-color-primary font-bold uppercase rounded-2xl w-32 h-9 ${
               activeButton === "save" ? "opacity-100" : "opacity-40"
             }`}
           >
