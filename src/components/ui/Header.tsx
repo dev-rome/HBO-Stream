@@ -30,10 +30,10 @@ const Header = () => {
     <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center text-color-secondary bg-transparent transition-colors duration-300 ease-in-out hover:bg-[#212529] py-4 px-12">
       <div className="flex gap-10">
         <HiOutlineBars3CenterLeft
-          className="cursor-pointer"
+          className="text-xl cursor-pointer"
           onClick={handleOpenMenuClick}
         />
-        <HiOutlineSearch className="cursor-pointer" onClick={handleOpenSearchClick} />
+        <HiOutlineSearch className="text-xl cursor-pointer" onClick={handleOpenSearchClick} />
       </div>
       <Image
         src="/assets/images/logo.svg"
