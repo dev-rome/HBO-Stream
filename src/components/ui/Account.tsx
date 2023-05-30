@@ -3,12 +3,12 @@
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
-import AccountSideNav from "@/src/components/side-nav/AccountSideNav";
 import useHBOContext from "@/src/hooks/useHBOContext";
+import AccountSideNav from "@/src/components/side-nav/AccountSideNav";
 
 const Account = () => {
   const hboContext = useHBOContext();
-  const showAccountSideNav = hboContext?.showAccountSideNav || false;
+  const { showAccountSideNav } = hboContext || false;
 
   const imagesData = [
     "https://placehold.co/600x400",
