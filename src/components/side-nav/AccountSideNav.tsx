@@ -8,7 +8,7 @@ const AccountSideNav = () => {
   const [activeItem, setActiveItem] = useState<string>("My List");
 
   const hboContext = useHBOContext();
-  const toggleAccountSideNav = hboContext?.toggleAccountSideNav || (() => {});
+  const { toggleAccountSideNav } = hboContext || {}
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);
