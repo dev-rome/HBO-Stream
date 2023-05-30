@@ -1,12 +1,12 @@
-import CastInfo from "@/src/components/ui/cast-info/CastInfo";
 import FeaturedMedia from "@/src/components/ui/FeaturedMedia";
-import PosterView from "@/src/components/ui/PosterView";
+import MediaRow from "@/src/components/MediaRow";
+import CastInfo from "@/src/components/ui/cast-info/CastInfo";
 
 function Movie() {
   return (
     <>
       <FeaturedMedia />
-      <PosterView />
+      <MediaRow title="More like this" imgWidth="175px" imgHeight="300px" />
       <CastInfo />
     </>
   );
