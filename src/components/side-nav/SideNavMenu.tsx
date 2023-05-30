@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
-import NavItem from "@/src/components/side-nav/NavItem";
 import useHBOContext from "@/src/hooks/useHBOContext";
+import NavItem from "@/src/components/side-nav/NavItem";
 
 const SideNavMenu = () => {
   const [activeItem, setActiveItem] = useState<string>("Home");
   const hboContext = useHBOContext();
-  const showSideNav = hboContext?.showSideNav || false;
-  const toggleSideNav = hboContext?.toggleSideNav || (() => {});
+  const { showSideNav, toggleSideNav } = hboContext || {};
 
   const handleActiveItemClick = (item: string) => {
     setActiveItem(item);
