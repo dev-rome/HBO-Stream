@@ -1,20 +1,16 @@
 "use client";
 
 import FeaturedMedia from "@/src/components/ui/FeaturedMedia";
-import ForYouList from "@/src/components/ui/ForYouList";
-import JustAdded from "@/src/components/ui/JustAdded";
-import PosterView from "@/src/components/ui/PosterView";
-import TestSection from "@/src/components/TestSection";
+import MediaRow from "@/src/components/MediaRow";
 import AuthCheck from "@/src/features/AuthCheck";
 
 function Browse() {
   return (
     <>
       <FeaturedMedia />
-      <ForYouList />
-      <JustAdded />
-      <PosterView />
-      <TestSection />
+      <MediaRow title="For You" imgWidth="240px" imgHeight="160px" />
+      <MediaRow title="Just Added" imgWidth="300px" imgHeight="400px" />
+      <MediaRow title="Movies" imgWidth="175px" imgHeight="300px" />
     </>
   );
 }
