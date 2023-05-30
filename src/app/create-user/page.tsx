@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import ls from "local-storage";
+import { v4 as uuidv4 } from "uuid";
 import useHBOContext from "@/src/hooks/useHBOContext";
 
 export default function CreateUser() {
@@ -10,6 +14,29 @@ export default function CreateUser() {
   const hboContext = useHBOContext();
   const newUser = hboContext?.user || "";
   const createUser = hboContext?.createUser || (() => {});
+
+  const router = useRouter();
+
+  const handleSaveUserClick = () => {
+    let user;
+    let users: any[] = [];
+    // Get users from localStorage
+    const storedUsers = ls("users");
+    // Check if users exist in localStorage
+    if (Array.isArray(storedUsers) && storedUsers.length > 0) {
+      users = storedUsers;
+    }
+
+    user = {
+      id: uuidv4(),
+      name: newUser,
+      myListID: [],
+    };
+
+    users.push(user);
+    ls("users", users);
+    router.push("/login");
+  };
 
   const handleMouseEnter = (buttonName: string) => {
     setActiveButton(buttonName);
@@ -54,18 +81,21 @@ export default function CreateUser() {
           </div>
         </div>
         <div className="flex gap-5 mb-8">
-          <button
-            onMouseEnter={() => handleMouseEnter("cancel")}
-            onFocus={() => handleMouseEnter("cancel")}
-            className={`bg-color-secondary text-color-primary uppercase font-bold rounded-2xl w-32 h-9 ${
-              activeButton === "cancel" ? "opacity-100" : "opacity-40"
-            }`}
-          >
-            Cancel
-          </button>
+          <Link href="/">
+            <button
+              onMouseEnter={() => handleMouseEnter("cancel")}
+              onFocus={() => handleMouseEnter("cancel")}
+              className={`bg-color-secondary text-color-primary uppercase font-bold rounded-2xl w-32 h-9 ${
+                activeButton === "cancel" ? "opacity-100" : "opacity-40"
+              }`}
+            >
+              Cancel
+            </button>
+          </Link>
           <button
             onMouseEnter={() => handleMouseEnter("save")}
             onFocus={() => handleMouseEnter("save")}
+            onClick={handleSaveUserClick}
             className={`bg-color-secondary text-color-primary font-bold uppercase rounded-2xl w-32 h-9 ${
               activeButton === "save" ? "opacity-100" : "opacity-40"
             }`}
