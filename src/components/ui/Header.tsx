@@ -10,10 +10,9 @@ import SearchModal from "@/src/components/ui/SearchModal";
 
 const Header = () => {
   const hboContext = useHBOContext();
-  const toggleSideNav = hboContext?.toggleSideNav || (() => {});
-  const toggleAccountSideNav = hboContext?.toggleAccountSideNav || (() => {});
-  const toggleSearchModal = hboContext?.toggleSearchModal || (() => {});
-  
+  const { toggleSideNav, toggleAccountSideNav, toggleSearchModal } =
+    hboContext || {};
+
   const handleOpenMenuClick = () => {
     toggleSideNav?.();
   };
@@ -33,7 +32,10 @@ const Header = () => {
           className="text-xl cursor-pointer"
           onClick={handleOpenMenuClick}
         />
-        <HiOutlineSearch className="text-xl cursor-pointer" onClick={handleOpenSearchClick} />
+        <HiOutlineSearch
+          className="text-xl cursor-pointer"
+          onClick={handleOpenSearchClick}
+        />
       </div>
       <Image
         src="/assets/images/logo.svg"
@@ -41,17 +43,18 @@ const Header = () => {
         width={130}
         height={130}
       />
-      <div className="flex items-center gap-4">
-        <Image
-          src="/assets/images/pic.jpeg"
-          alt="User account image"
-          width={30}
-          height={30}
-          className="rounded-full cursor-pointer"
-          onClick={handleOpenAccountClick}
-        />
-        <p>Jerome</p>
-      </div>
+      <button onClick={handleOpenAccountClick}>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/assets/images/pic.jpeg"
+            alt="User account image"
+            width={30}
+            height={30}
+            className="rounded-full"
+          />
+          <p>Jerome</p>
+        </div>
+      </button>
       <Account />
       <SideNavMenu />
       <SearchModal />
