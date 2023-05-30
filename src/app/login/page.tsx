@@ -3,28 +3,28 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import ls from "local-storage";
-import useMounted  from "@/src/hooks/useMounted";
+import useMounted from "@/src/hooks/useMounted";
+import ActiveButton from "@/src/components/ActiveButton";
 
 interface User {
   id: string;
   name: string;
 }
 
-export default function Login() {
-  const [activeButton, setActiveButton] = useState<string>("create-user");
+function Login() {
+  const [activeButton, setActiveButton] = useState<string>("Create-user");
   const router = useRouter();
 
   const isMounted = useMounted();
   const storedUsers = ls("users");
   const users: User[] = Array.isArray(storedUsers) ? storedUsers : [];
 
-  const handleMouseEnter = (buttonName: string) => {
+  const handleButtonActive = (buttonName: string) => {
     setActiveButton(buttonName);
   };
 
-  const handleOnClick = (id: string) => {
+  const handleUserSelection = (id: string) => {
     ls("activeUser", id);
     router.push("/browse");
   };
@@ -35,14 +35,15 @@ export default function Login() {
         key={user.id}
         className="flex flex-col justify-center items-center gap-x-12"
       >
-        <Image
-          src="/assets/images/pic.jpeg"
-          alt="profile-image"
-          width={125}
-          height={125}
-          className="rounded-full object-cover mb-4 cursor-pointer"
-          onClick={() => handleOnClick(user.id)}
-        />
+        <button onClick={() => handleUserSelection(user.id)}>
+          <Image
+            src="/assets/images/pic.jpeg"
+            alt="profile-image"
+            width={125}
+            height={125}
+            className="rounded-full object-cover mb-4 cursor-pointer"
+          />
+        </button>
         <p className="text-color-secondary">{user.name}</p>
       </div>
     ));
@@ -66,30 +67,24 @@ export default function Login() {
           {isMounted && renderUsers()}
         </div>
         <div className="flex gap-5 mb-8">
-          <Link href="/">
-            <button
-              onMouseEnter={() => handleMouseEnter("cancel")}
-              onFocus={() => handleMouseEnter("cancel")}
-              className={`bg-color-secondary text-color-primary font-semibold rounded-2xl w-32 h-9 ${
-                activeButton === "cancel" ? "opacity-100" : "opacity-40"
-              }`}
-            >
-              Cancel
-            </button>
-          </Link>
-          <Link href="/create-user">
-            <button
-              onMouseEnter={() => handleMouseEnter("create-user")}
-              onFocus={() => handleMouseEnter("create-user")}
-              className={`bg-color-secondary text-color-primary font-semibold rounded-2xl w-32 h-9 ${
-                activeButton === "create-user" ? "opacity-100" : "opacity-40"
-              }`}
-            >
-              Create User
-            </button>
-          </Link>
+          <ActiveButton
+            buttonName="Cancel"
+            href="/"
+            activeButton={activeButton}
+            handleMouseEnter={handleButtonActive}
+            handleFocus={handleButtonActive}
+          />
+          <ActiveButton
+            buttonName="Create-user"
+            href="/create-user"
+            activeButton={activeButton}
+            handleMouseEnter={handleButtonActive}
+            handleFocus={handleButtonActive}
+          />
         </div>
       </div>
     </section>
   );
 }
+
+export default Login;
