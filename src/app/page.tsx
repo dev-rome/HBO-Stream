@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import ActiveButton from "@/src/components/ActiveButton";
 
-export default function Home() {
-  const [activeButton, setActiveButton] = useState<string>("sign-up");
+function Home() {
+  const [activeButton, setActiveButton] = useState<string>("Sign-up");
 
-  const handleMouseEnter = (buttonName: string) => {
+  const handleButtonActive = (buttonName: string) => {
     setActiveButton(buttonName);
   };
 
@@ -51,30 +51,24 @@ export default function Home() {
           animate="animate"
           transition={{ duration: 0.5, ease: "easeIn", delay: 2.1 }}
         >
-          <Link href="/login">
-            <button
-              onMouseEnter={() => handleMouseEnter("sign-in")}
-              onFocus={() => handleMouseEnter("sign-in")}
-              className={`bg-color-secondary text-color-primary font-semibold rounded-2xl w-32 h-9 ${
-                activeButton === "sign-in" ? "opacity-100" : "opacity-40"
-              }`}
-            >
-              Sign-In
-            </button>
-          </Link>
-          <Link href="/create-user">
-            <button
-              onMouseEnter={() => handleMouseEnter("sign-up")}
-              onFocus={() => handleMouseEnter("sign-up")}
-              className={`bg-color-secondary text-color-primary font-semibold rounded-2xl w-32 h-9 ${
-                activeButton === "sign-up" ? "opacity-100" : "opacity-40"
-              }`}
-            >
-              Sign-Up
-            </button>
-          </Link>
+          <ActiveButton
+            buttonName="Sign-in"
+            href="/login"
+            activeButton={activeButton}
+            handleMouseEnter={handleButtonActive}
+            handleFocus={handleButtonActive}
+          />
+          <ActiveButton
+            buttonName="Sign-up"
+            href="/create-user"
+            activeButton={activeButton}
+            handleMouseEnter={handleButtonActive}
+            handleFocus={handleButtonActive}
+          />
         </motion.div>
       </div>
     </motion.section>
   );
 }
+
+export default Home;
