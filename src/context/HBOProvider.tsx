@@ -11,6 +11,7 @@ interface HBOContextProps {
   toggleAccountSideNav?: () => void;
   toggleSearchModal?: () => void;
   createUser?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  resetUser?: () => void;
 }
 
 // Defines a default value for the menu context
@@ -45,6 +46,10 @@ const HBOStreamProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(e.target.value);
   };
 
+  const resetUser = () => {
+    setUser("");
+  };
+
   const contextValues = {
     showSideNav,
     showAccountSideNav,
@@ -54,6 +59,7 @@ const HBOStreamProvider = ({ children }: { children: React.ReactNode }) => {
     toggleSearchModal,
     user,
     createUser,
+    resetUser,
   };
 
   return (
