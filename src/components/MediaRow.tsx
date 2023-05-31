@@ -24,10 +24,11 @@ const MediaRow = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
     <div className="py-5 pl-4 lg:pl-12">
       <h3 className="text-color-secondary font-medium mb-4">{title}</h3>
       <div className="min-w-full w-calc-width flex flex-nowrap gap-3 overflow-x-scroll no-scrollbar">
-        {imagesData.map((item) => (
-          <div key={title} className="relative">
+        {imagesData.map((item, index) => (
+          <div key={index} className="relative">
             <div
-              className={`overflow-hidden flex items-center justify-center w-[${imgWidth}] h-[${imgHeight}]`}
+              style={{ width: imgWidth, height: imgHeight }}
+              className={`overflow-hidden flex items-center justify-center`}
             >
               <img
                 className="w-full h-full object-cover"
