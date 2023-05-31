@@ -45,7 +45,7 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
       <div key={item.id} className="relative">
         <div
           style={{ width: imgWidth, height: imgHeight }}
-          className="overflow-hidden flex items-center justify-center relative"
+          className="overflow-hidden flex items-center justify-center"
         >
           <img
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
@@ -64,7 +64,7 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
   return (
     <div className="py-5 pl-4 lg:pl-12">
       <h3 className="text-color-secondary font-medium mb-4">{title}</h3>
-      <div className="min-w-full w-calc-width flex flex-nowrap gap-3 overflow-x-scroll no-scrollbar">
+      <div className="min-w-full w-calc-width flex flex-nowrap gap-3 overflow-x-scroll">
         {renderImages}
       </div>
     </div>
