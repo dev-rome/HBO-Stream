@@ -9,7 +9,11 @@ const DynamicMediaRow = dynamic(() => import("@/src/components/MediaRow"));
 function Browse() {
   return (
     <>
-      <FeaturedMedia />
+      <FeaturedMedia
+        title="The Movie"
+        location="In theaters now and on HBO Stream."
+        video="https://www.youtube.com/embed/573GCxqkYEg?autoplay=1&mute=1&loop=1"
+      />
       <DynamicMediaRow title="For You" imgWidth="240px" imgHeight="360px" />
       <DynamicMediaRow
         title="Series"
