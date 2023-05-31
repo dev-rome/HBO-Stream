@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .no-scrollbar {
   overflow-x: auto;
   -ms-overflow-style: none; /* IE and Edge */
