@@ -1,8 +1,5 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
-import Image from "next/image";
 import axios from "axios";
 
 interface MediaRowProps {
@@ -37,7 +34,6 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
       .then(([movieRes, tvShowRes]) => {
         const data = [...movieRes.data.results, ...tvShowRes.data.results];
         setMedia(shuffleMedia(data));
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -51,14 +47,9 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
           style={{ width: imgWidth, height: imgHeight }}
           className="overflow-hidden flex items-center justify-center relative"
         >
-          <Image
-            fill={true}
-            sizes="100%"
+          <img
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
             alt="Placeholder description"
-            placeholder="blur"
-            blurDataURL="https://via.placeholder.com/150"
-            loading="lazy"
           />
         </div>
         <div className="group absolute top-0 left-0 w-full h-full flex justify-center items-center bg-background-movie-poster opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-90">
