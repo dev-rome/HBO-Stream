@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
+import Image from "next/image";
 import axios from "axios";
+import Imageholder from "@/src/components/ImageHolder";
 
 interface MediaRowProps {
   title: string;
@@ -48,11 +49,11 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
           style={{ width: imgWidth, height: imgHeight }}
           className="overflow-hidden flex items-center justify-center relative"
         >
-          <Image
-            fill={true}
-            sizes="100%"
+          <Imageholder
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
             alt="Placeholder description"
+            width={parseInt(imgWidth)}
+            height={parseInt(imgHeight)}
           />
         </div>
         <div className="group absolute top-0 left-0 w-full h-full flex justify-center items-center bg-background-movie-poster opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-90">
