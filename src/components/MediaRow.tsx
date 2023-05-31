@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 import axios from "axios";
 
@@ -45,9 +46,11 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
       <div key={item.id} className="relative">
         <div
           style={{ width: imgWidth, height: imgHeight }}
-          className="overflow-hidden flex items-center justify-center"
+          className="overflow-hidden flex items-center justify-center relative"
         >
-          <img
+          <Image
+            fill={true}
+            sizes="100%"
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
             alt="Placeholder description"
           />
