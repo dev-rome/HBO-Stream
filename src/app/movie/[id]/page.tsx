@@ -21,7 +21,7 @@ function Movie() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=9003a9a7916fe23de95525fc04f2b35d&language=en-US`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US`
       )
       .then((res) => {
         setSingleMovie(res.data);
