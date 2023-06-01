@@ -3,6 +3,7 @@
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import Image from "next/image";
+import Link from "next/link";
 import useHBOContext from "@/src/hooks/useHBOContext";
 import Account from "@/src/components/ui/Account";
 import SideNavMenu from "@/src/components/side-nav/SideNavMenu";
@@ -37,12 +38,14 @@ const Header = () => {
           onClick={handleOpenSearchClick}
         />
       </div>
-      <Image
-        src="/assets/images/logo.svg"
-        alt="HBO Max"
-        width={130}
-        height={130}
-      />
+      <Link href="/browse">
+        <Image
+          src="/assets/images/logo.svg"
+          alt="HBO Streaming Service Logo"
+          width={130}
+          height={130}
+        />
+      </Link>
       <button onClick={handleOpenAccountClick}>
         <div className="flex items-center gap-4">
           <Image
