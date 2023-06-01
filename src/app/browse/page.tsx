@@ -11,7 +11,7 @@ function Browse() {
     <>
       <FeaturedMedia
         title="The Movie"
-        location="In theaters now and on HBO Stream."
+        overview="In theaters now and on HBO Stream."
         video="https://www.youtube.com/embed/573GCxqkYEg?autoplay=1&mute=1&loop=1"
       />
       <DynamicMediaRow title="For You" imgWidth="240px" imgHeight="360px" />
