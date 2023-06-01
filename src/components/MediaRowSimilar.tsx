@@ -28,7 +28,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}`
+        `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=9003a9a7916fe23de95525fc04f2b35d`
       )
       .then((res) => {
         setSingleMedia(shuffleMedia(res.data.results));

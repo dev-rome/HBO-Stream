@@ -27,10 +27,10 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
   useEffect(() => {
     Promise.all([
       axios.get(
-        `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&primary_release_year=2021&api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}`
+        `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&primary_release_year=2021&api_key=9003a9a7916fe23de95525fc04f2b35d`
       ),
       axios.get(
-        `https://api.themoviedb.org/3/discover/tv?with_genres=${genreId}&api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}`
+        `https://api.themoviedb.org/3/discover/tv?with_genres=${genreId}&api_key=9003a9a7916fe23de95525fc04f2b35d`
       ),
     ])
       .then(([movieRes, tvShowRes]) => {
