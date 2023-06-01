@@ -5,15 +5,9 @@ interface FeaturedMediaProps {
   title: string;
   overview: string;
   video: string;
-  // movieId: string;
 }
 
-const FeaturedMedia = ({
-  title,
-  overview,
-  video,
-}: // movieId,
-FeaturedMediaProps) => {
+const FeaturedMedia = ({ title, overview, video }: FeaturedMediaProps) => {
   return (
     <div className="relative w-full h-screen min-h-[700px] bg-black overflow-hidden ">
       <iframe
