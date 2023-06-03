@@ -28,7 +28,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=9003a9a7916fe23de95525fc04f2b35d`
+        `https://api.themoviedb.org/3/${params.media_type}/${params.id}/similar?api_key=9003a9a7916fe23de95525fc04f2b35d`
       )
       .then((res) => {
         setSingleMedia(shuffleMedia(res.data.results));
@@ -36,7 +36,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [params.id]);
+  }, [params.id, params.media_type]);
 
   const renderImages = singleMedia.map((item) => {
     return (
@@ -47,7 +47,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
         >
           <Imageholder
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-            alt="Placeholder description"
+            alt={item.title || item.name}
             width={parseInt(imgWidth)}
             height={parseInt(imgHeight)}
           />
