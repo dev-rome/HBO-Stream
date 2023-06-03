@@ -9,9 +9,16 @@ interface MediaRowProps {
   imgWidth: string;
   imgHeight: string;
   genreId?: string;
+  media_type: string;
 }
 
-const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
+const MediaRow = ({
+  title,
+  imgWidth,
+  imgHeight,
+  genreId,
+  media_type,
+}: MediaRowProps) => {
   const [media, setMedia] = useState<any[]>([]);
 
   const shuffleMedia = (array: any[]) => {
@@ -25,26 +32,23 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
   };
 
   useEffect(() => {
-    Promise.all([
-      axios.get(
-        `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&primary_release_year=2021&api_key=9003a9a7916fe23de95525fc04f2b35d`
-      ),
-      axios.get(
-        `https://api.themoviedb.org/3/discover/tv?with_genres=${genreId}&api_key=9003a9a7916fe23de95525fc04f2b35d`
-      ),
-    ])
-      .then(([movieRes, tvShowRes]) => {
-        const data = [...movieRes.data.results, ...tvShowRes.data.results];
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/${media_type}?with_genres=${genreId}&primary_release_year=2021&api_key=9003a9a7916fe23de95525fc04f2b35d`
+      )
+      .then((res) => {
+        const data = [...res.data.results];
         setMedia(shuffleMedia(data));
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [genreId]);
+  }, [genreId, media_type]);
 
   const renderImages = media.map((item) => {
+    const mediaType = media_type === "movie" ? "movie" : "tv";
     return (
-      <Link href={`/movie/${item.id}`} key={item.id}>
+      <Link href={`${mediaType}/${item.id}`} key={item.id}>
         <div className="relative">
           <div
             style={{ width: imgWidth, height: imgHeight }}
@@ -52,7 +56,7 @@ const MediaRow = ({ title, imgWidth, imgHeight, genreId }: MediaRowProps) => {
           >
             <Imageholder
               src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-              alt="Placeholder description"
+              alt={item.title || item.name}
               width={parseInt(imgWidth)}
               height={parseInt(imgHeight)}
             />
