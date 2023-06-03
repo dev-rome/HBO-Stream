@@ -22,7 +22,7 @@ const SideNavMenu = () => {
   };
 
   const navItemsTop = [
-    { title: "Home", href: "/" },
+    { title: "Home", href: "/browse" },
     { title: "Series", href: "" },
     { title: "Movies", href: "" },
     { title: "Originals", href: "" },
