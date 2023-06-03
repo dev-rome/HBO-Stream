@@ -18,7 +18,7 @@ const CastInfo = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=9003a9a7916fe23de95525fc04f2b35d`
+        `https://api.themoviedb.org/3/${params.media_type}/${params.id}/credits?api_key=9003a9a7916fe23de95525fc04f2b35d`
       )
       .then((res) => {
         setTeamData(res.data);
@@ -26,7 +26,7 @@ const CastInfo = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [params.id]);
+  }, [params.id, params.media_type]);
 
   const castData = teamData.cast.map((item) => {
     return {
@@ -38,15 +38,10 @@ const CastInfo = () => {
     .filter((member) => member.known_for_department === "Directing")
     .map((member) => ({ name: member.name }));
 
-  const crewDataWriting = teamData.crew
-    .filter((member) => member.known_for_department === "Writing")
-    .map((member) => ({ name: member.name }));
-
   return (
     <div className="flex flex-col gap-10 px-4 py-12 lg:px-12 text-color-secondary">
       <CastInfoSection title="Cast & Crew" data={castData} />
       <CastInfoSection title="Directing" data={crewDataDirecting} />
-      <CastInfoSection title="Writing " data={crewDataWriting} />
     </div>
   );
 };
