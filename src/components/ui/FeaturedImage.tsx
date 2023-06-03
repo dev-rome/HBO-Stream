@@ -16,7 +16,7 @@ const FeaturedImage = ({ title, overview, image }: FeaturedImageProps) => {
     <div className="relative w-full h-screen overflow-hidden ">
       <Image
         src={image}
-        alt={title}
+        alt="Featured Image of the current media selected"
         fill={true}
         className="w-full h-full object-cover object-center"
       />
