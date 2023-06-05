@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useParams } from "next/navigation";
 import GenreNavItem from "@/src/components/side-nav/GenreNavItem";
 
 interface GenreNavMenuProps {
@@ -13,6 +14,8 @@ const GenreNavMenu = ({ genres }: GenreNavMenuProps) => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const { media_type } = useParams();
 
   const handleActiveItemClick = (name: string) => {
     setActiveItem(name);
@@ -67,7 +70,7 @@ const GenreNavMenu = ({ genres }: GenreNavMenuProps) => {
                 <GenreNavItem
                   key={id}
                   title={name}
-                  href={name}
+                  href={`/${media_type}/genre/${id}`}
                   activeItem={activeItem === name}
                   genres={genres}
                   onClick={() => handleActiveItemClick(name)}
