@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { shuffleMedia } from "@/utils/shuffle";
 import Link from "next/link";
 import axios from "axios";
-import Imageholder from "@/src/components/ImageHolder";
+import ImageHolder from "@/src/components/ImageHolder";
 
 interface MediaRowProps {
   title: string;
@@ -40,7 +40,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight, media_type }: MediaRowPro
           style={{ width: imgWidth, height: imgHeight }}
           className="overflow-hidden flex items-center justify-center relative"
         >
-          <Imageholder
+          <ImageHolder
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
             alt={item.title || item.name}
             width={parseInt(imgWidth)}

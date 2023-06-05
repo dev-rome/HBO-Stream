@@ -10,7 +10,7 @@ interface ImageholderProps {
   height: number;
 }
 
-const Imageholder = ({ src, alt, width, height }: ImageholderProps) => {
+const ImageHolder = ({ src, alt, width, height }: ImageholderProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -36,4 +36,4 @@ const Imageholder = ({ src, alt, width, height }: ImageholderProps) => {
   );
 };
 
-export default Imageholder;
+export default ImageHolder;
