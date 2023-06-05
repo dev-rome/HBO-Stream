@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { shuffleMedia } from "@/utils/shuffle";
-import FeaturedMedia from "@/src/components/ui/FeaturedMedia";
+import FeaturedImage from "@/src/components/ui/FeaturedImage";
 import GenreNavMenu from "@/src/components/side-nav/GenreNavMenu";
 import dynamic from "next/dynamic";
 import AuthCheck from "@/src/features/AuthCheck";
@@ -18,13 +18,16 @@ interface GenreProps {
 
 interface FeaturedMediaProps {
   title: string;
+  name: string;
+  backdrop_path: string;
   overview: string;
-  video: string;
 }
 
 function Media() {
   const [genreData, setGenreData] = useState<GenreProps[]>([]);
-  const [featuredMedia, setFeaturedMedia] = useState<FeaturedMediaProps | null>(null);
+  const [featuredMedia, setFeaturedMedia] = useState<FeaturedMediaProps | null>(
+    null
+  );
   const { media_type } = useParams();
 
   useEffect(() => {
@@ -43,12 +46,18 @@ function Media() {
       .catch((err) => console.error(err));
   }, [media_type]);
 
+  if (!featuredMedia) {
+    return null;
+  }
+
+  const { title, name, backdrop_path, overview } = featuredMedia;
+
   return (
     <>
-      <FeaturedMedia
-        title="The Movie"
-        overview="In theaters now and on HBO Stream."
-        video="https://www.youtube.com/embed/573GCxqkYEg?autoplay=1&mute=1&loop=1"
+      <FeaturedImage
+        title={title || name}
+        overview={overview}
+        image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
       <GenreNavMenu media_type={media_type} genres={genreData} />
       <DynamicMediaRow

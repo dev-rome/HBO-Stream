@@ -42,12 +42,14 @@ function SingleMedia() {
     return null;
   }
 
+  const { title, overview, backdrop_path } = singleMedia;
+
   return (
     <>
       <FeaturedImage
-        title={singleMedia.title}
-        overview={singleMedia.overview}
-        image={`https://image.tmdb.org/t/p/original${singleMedia.backdrop_path}`}
+        title={title}
+        overview={overview}
+        image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
 
       <DynamicMediaRowSimilar
