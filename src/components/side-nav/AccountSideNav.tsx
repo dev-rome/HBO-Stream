@@ -16,7 +16,7 @@ const AccountSideNav = () => {
   };
 
   const accountNavTop = [
-    { title: "My List", href: "/" },
+    { title: "My List", href: "" },
     { title: "Continue Watching", href: "" },
   ];
 
