@@ -12,7 +12,7 @@ import axios from "axios";
 const DynamicMediaRow = dynamic(() => import("@/src/components/MediaRow"));
 
 interface GenreProps {
-  id: number;
+  id: string;
   name: string;
 }
 
@@ -52,6 +52,21 @@ function Media() {
 
   const { title, name, backdrop_path, overview } = featuredMedia;
 
+  const showMedia = () => {
+    return genreData.map((item) => {
+      return (
+        <DynamicMediaRow
+          key={item.id}
+          title={item.name}
+          imgWidth="240px"
+          imgHeight="360px"
+          media_type={media_type}
+          genreId={item.id}
+        />
+      );
+    });
+  };
+
   return (
     <>
       <FeaturedImage
@@ -60,12 +75,7 @@ function Media() {
         image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
       <GenreNavMenu media_type={media_type} genres={genreData} />
-      <DynamicMediaRow
-        title="For You"
-        imgWidth="240px"
-        imgHeight="360px"
-        media_type={media_type}
-      />
+      {showMedia()}
     </>
   );
 }
