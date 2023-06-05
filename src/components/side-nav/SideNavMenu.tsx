@@ -23,8 +23,8 @@ const SideNavMenu = () => {
 
   const navItemsTop = [
     { title: "Home", href: "/browse" },
-    { title: "Series", href: "" },
-    { title: "Movies", href: "" },
+    { title: "Series", href: "/tv" },
+    { title: "Movies", href: "/movie" },
     { title: "Originals", href: "" },
     { title: "Just Added", href: "" },
     { title: "Last Chance", href: "" },
