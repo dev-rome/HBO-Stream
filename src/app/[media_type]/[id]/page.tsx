@@ -56,6 +56,7 @@ function SingleMedia() {
         title="More like this"
         imgWidth="240px"
         imgHeight="360px"
+        media_type={media_type}
       />
       <CastInfo />
     </>
