@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 import { useParams } from "next/navigation";
+import { shuffleMedia } from "@/utils/shuffle";
 import axios from "axios";
 import Imageholder from "@/src/components/ImageHolder";
 
@@ -14,16 +15,6 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
   const [singleMedia, setSingleMedia] = useState<any[]>([]);
 
   const params = useParams();
-
-  const shuffleMedia = (array: any[]) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  };
 
   useEffect(() => {
     axios
