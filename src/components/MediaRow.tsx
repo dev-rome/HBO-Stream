@@ -40,7 +40,7 @@ const MediaRow = ({
     const mediaType = media_type === "movie" ? "movie" : "tv";
     return (
       <Link href={`${mediaType}/${item.id}`} key={item.id}>
-        <div className="relative">
+        <div key={item.id} className="relative">
           <div
             style={{ width: imgWidth, height: imgHeight }}
             className="overflow-hidden flex items-center justify-center relative"

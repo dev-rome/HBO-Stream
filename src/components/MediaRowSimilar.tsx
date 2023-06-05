@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 import { useParams } from "next/navigation";
 import { shuffleMedia } from "@/utils/shuffle";
+import Link from "next/link";
 import axios from "axios";
 import Imageholder from "@/src/components/ImageHolder";
 
@@ -9,9 +10,10 @@ interface MediaRowProps {
   title: string;
   imgWidth: string;
   imgHeight: string;
+  media_type: string;
 }
 
-const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
+const MediaRowSimilar = ({ title, imgWidth, imgHeight, media_type }: MediaRowProps) => {
   const [singleMedia, setSingleMedia] = useState<any[]>([]);
 
   const params = useParams();
@@ -30,7 +32,9 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
   }, [params.id, params.media_type]);
 
   const renderImages = singleMedia.map((item) => {
+    const mediaType = media_type === "movie" ? "movie" : "tv";
     return (
+      <Link href={`${mediaType}/${item.id}`} key={item.id}>
       <div key={item.id} className="relative">
         <div
           style={{ width: imgWidth, height: imgHeight }}
@@ -49,6 +53,7 @@ const MediaRowSimilar = ({ title, imgWidth, imgHeight }: MediaRowProps) => {
           </button>
         </div>
       </div>
+      </Link>
     );
   });
 
