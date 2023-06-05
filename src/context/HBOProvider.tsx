@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 interface HBOContextProps {
   showSideNav: boolean;
@@ -29,6 +29,18 @@ const HBOStreamProvider = ({ children }: { children: React.ReactNode }) => {
   const [showAccountSideNav, setShowAccountSideNav] = useState<boolean>(false);
   const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
   const [user, setUser] = useState<string>("");
+
+  useEffect(() => {
+    if (showSideNav || showAccountSideNav || showSearchModal) {
+      document.body.style.overflowY = "hidden";
+      document.querySelector("html")!.style.overflowY = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflowY = "auto";
+      document.querySelector("html")!.style.overflowY = "auto";
+    };
+  }, [showAccountSideNav, showSearchModal, showSideNav]);
 
   const toggleSideNav = () => {
     setShowSideNav((prevValue) => !prevValue);
