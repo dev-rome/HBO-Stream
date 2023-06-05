@@ -5,13 +5,14 @@ import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import FeaturedImage from "@/src/components/ui/FeaturedImage";
 import CastInfo from "@/src/components/ui/cast-info/CastInfo";
+import AuthCheck from "@/src/features/AuthCheck";
 import axios from "axios";
 
 const DynamicMediaRowSimilar = dynamic(
   () => import("@/src/components/MediaRowSimilar")
 );
 
-interface MovieProps {
+interface SingleMediaProps {
   id: any;
   backdrop_path: string;
   title: string;
@@ -20,8 +21,8 @@ interface MovieProps {
   media_type: string;
 }
 
-function Media() {
-  const [singleMedia, setSingleMedia] = useState<MovieProps | null>(null);
+function SingleMedia() {
+  const [singleMedia, setSingleMedia] = useState<SingleMediaProps | null>(null);
 
   const { id, media_type } = useParams();
 
@@ -49,8 +50,6 @@ function Media() {
         image={`https://image.tmdb.org/t/p/original${singleMedia.backdrop_path}`}
       />
 
-
-
       <DynamicMediaRowSimilar
         title="More like this"
         imgWidth="240px"
@@ -61,4 +60,4 @@ function Media() {
   );
 }
 
-export default Media;
+export default AuthCheck(SingleMedia);
