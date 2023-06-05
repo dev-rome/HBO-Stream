@@ -14,13 +14,11 @@ interface MovieProps {
   id: number;
   title: string;
   name: string;
-  media_type: string;
-  imgWidth: string;
-  imgHeight: string;
   poster_path: string;
+  media_type: string;
 }
 
-const SearchModal = ({ imgWidth, imgHeight }: MovieProps) => {
+const SearchModal = () => {
   const [searchData, setSearchData] = useState<MovieProps[]>([]);
   const [popularSearches, setPopularSearches] = useState<MovieProps[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
