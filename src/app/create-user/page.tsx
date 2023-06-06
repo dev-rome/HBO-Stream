@@ -71,7 +71,7 @@ function CreateUser() {
           </span>
         </div>
         <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center gap-x-12">
+          <div className="flex justify-center items-center flex-col md:flex-row gap-x-12">
             <Image
               src="/assets/images/pic.jpeg"
               alt="profile-image"
