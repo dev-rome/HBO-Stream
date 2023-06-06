@@ -60,12 +60,7 @@ function CreateUser() {
     <section className="bg-background-main-gradient">
       <div className="flex flex-col justify-between items-center h-screen">
         <div className="flex flex-col items-center gap-4 mt-8">
-          <Image
-            src="/assets/images/logo.svg"
-            width={130}
-            height={130}
-            alt="HBO Max"
-          />
+          <p className="text-2xl text-color-secondary font-black">HBO Stream</p>
           <span className="text-2xl font-light text-color-secondary">
             Who is Watching?
           </span>
