@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center text-color-secondary bg-[#212529] py-4 px-12">
+    <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center text-color-secondary bg-color-primary py-4 px-4 md:px-12">
       <div className="flex gap-5">
         <HiOutlineBars3CenterLeft
           className="text-xl cursor-pointer"
@@ -39,12 +39,7 @@ const Header = () => {
         />
       </div>
       <Link href="/browse">
-        <Image
-          src="/assets/images/logo.svg"
-          alt="HBO Streaming Service Logo"
-          width={130}
-          height={130}
-        />
+        <p className="text-lg font-black">HBO Stream</p>
       </Link>
       <button onClick={handleOpenAccountClick}>
         <div className="flex items-center gap-4">
