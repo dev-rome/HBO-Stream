@@ -16,10 +16,10 @@
 }
 
 .show-scrollbar::-webkit-scrollbar-thumb {
-  background: #212529; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners for the thumb */
+  background: #343a40; /* Color of the scrollbar thumb */
+  border-radius: 50px; /* Rounded corners for the thumb */
 }
 
 .show-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #212529; /* Color of the scrollbar thumb on hover */
+  background: #343a40; /* Color of the scrollbar thumb on hover */
 }
