@@ -27,7 +27,7 @@ function Home() {
       <div className="absolute inset-0 bg-black opacity-50 w-full h-full"></div>
       <div className="absolute z-10 top-1/4 pl-4 md:pl-12">
         <motion.h1
-          className="max-w-2xl text-5xl md:text-6xl leading-tight md:leading-snug text-color-secondary font-bold mb-2"
+          className="max-w-2xl text-4xl md:text-6xl leading-tight md:leading-snug text-color-secondary font-bold mb-2"
           variants={variants}
           initial="initial"
           animate="animate"
