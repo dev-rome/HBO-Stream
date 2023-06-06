@@ -62,7 +62,7 @@ function Genre() {
           imgHeight="360px"
           media_type={media_type}
           genreId={id}
-            page={index + 1}
+          page={index + 1}
         />
       );
     });
