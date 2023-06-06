@@ -1,20 +1,56 @@
 "use client";
 
-import FeaturedMedia from "@/src/components/ui/FeaturedMedia";
-import AuthCheck from "@/src/features/AuthCheck";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
+import FeaturedImage from "@/src/components/ui/FeaturedImage";
+import AuthCheck from "@/src/features/AuthCheck";
+import axios from "axios";
+import { shuffleMedia } from "@/utils/shuffle";
 
 const DynamicMediaRow = dynamic(() => import("@/src/components/MediaRow"));
 
+interface FeaturedMediaProps {
+  title: string;
+  name: string;
+  backdrop_path: string;
+  overview: string;
+}
+
 function Browse() {
+  const [featuredMedia, setFeaturedMedia] = useState<FeaturedMediaProps | null>(
+    null
+  );
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios.get(
+      `https://api.themoviedb.org/3/discover/movie?primary_release_year=2021&with_genres=${id}&api_key=9003a9a7916fe23de95525fc04f2b35d&language=en-US`
+    ).then((res) => {
+      setFeaturedMedia(shuffleMedia(res.data.results)[0]);
+      console.log(res.data.results);
+    }).catch((err) => console.error(err));
+  }, [id]);
+
+  if (!featuredMedia) {
+    return null;
+  }
+
+  const { title, name, backdrop_path, overview } = featuredMedia;
+
   return (
     <>
-      <FeaturedMedia
-        title="The Movie"
-        overview="In theaters now and on HBO Stream."
-        video="https://www.youtube.com/embed/573GCxqkYEg?autoplay=1&mute=1&loop=1"
+       <FeaturedImage
+        title={title || name}
+        overview={overview}
+        image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
-      <DynamicMediaRow title="For You" imgWidth="240px" imgHeight="360px" media_type="movie" />
+      <DynamicMediaRow
+        title="For You"
+        imgWidth="240px"
+        imgHeight="360px"
+        media_type="movie"
+      />
       <DynamicMediaRow
         title="Series"
         genreId="10765"
@@ -81,6 +117,28 @@ function Browse() {
       <DynamicMediaRow
         title="Science Fiction"
         genreId="878"
+        imgWidth="240px"
+        imgHeight="360px"
+        media_type="movie"
+      />
+      <DynamicMediaRow
+        title="Drama"
+        genreId="18"
+        imgWidth="240px"
+        imgHeight="360px"
+        media_type="movie"
+      />
+      <DynamicMediaRow
+        title="Family"
+        genreId="10751"
+        imgWidth="240px"
+        imgHeight="360px"
+        media_type="movie"
+      />
+
+      <DynamicMediaRow
+        title="Mystery"
+        genreId="9648"
         imgWidth="240px"
         imgHeight="360px"
         media_type="movie"
