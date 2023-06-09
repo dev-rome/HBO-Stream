@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Title
 
-## Getting Started
+HBO Stream is a practice project that utilizes the Movie Database (TMDB) API to create a movie streaming application. It is built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Screenshots
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.31.58%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.32.11%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.33.06%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.33.33%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.34.21%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.34.33%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.34.56%20PM.png)
+![App Screenshot](/public/assets/images/Screenshot%202023-06-09%20at%205.35.09%20PM.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Home page displaying popular movies and TV shows
+- Search functionality to find specific movies and TV shows
+- Detailed movie and TV show pages with overview information
+- Dynamic routing for individual movie and TV show pages
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tech Stack
 
-## Learn More
+- Next.js - A React framework for server-side rendering and static site generation
+- TypeScript - A statically typed superset of JavaScript
+- Tailwind CSS - A utility-first CSS framework
 
-To learn more about Next.js, take a look at the following resources:
+## API Reference
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project uses the TMDB API to fetch movie and TV show data. You will need to sign up for a free API key to use the API. Once you have obtained an API key, add it to the .env.local file as mentioned in the installation steps. Make sure to handle API key securely and avoid exposing it publicly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Stretch Goals
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Improve the CSS styling to create a more visually appealing and user-friendly interface.
+- Hide the TMDB API key securely and handle API requests securely on the server-side.
+- Refactor the code to follow the DRY (Don't Repeat Yourself) principle and ensure cleaner, more maintainable code.
+- Add more sections and pages to showcase additional content, such as genres, trending movies/show
+- Ratings feature to allow users to rate movies and shows
+- Additional sections and pages for genres, trending movies/shows, and top-rated content
+- Recommendations based on user preferences and viewing history
