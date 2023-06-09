@@ -2,24 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-.show-scrollbar {
-  overflow-x: auto;
+/* Styles for desktop */
+@media (min-width: 768px) {
+  .show-scrollbar {
+    overflow-x: auto;
+  }
+
+  /* Style for the scrollbar */
+  .show-scrollbar::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar */
+  }
+
+  .show-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the scrollbar track */
+  }
+
+  .show-scrollbar::-webkit-scrollbar-thumb {
+    background: #343a40; /* Color of the scrollbar thumb */
+    border-radius: 50px; /* Rounded corners for the thumb */
+  }
+
+  .show-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #343a40; /* Color of the scrollbar thumb on hover */
+  }
 }
 
-/* Style for the scrollbar */
-.show-scrollbar::-webkit-scrollbar {
-  width: 2px; /* Width of the scrollbar */
-}
+/* Styles for smaller screens */
+@media (max-width: 767px) {
+  .show-scrollbar {
+    overflow-x: scroll;
+  }
 
-.show-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* Background color of the scrollbar track */
-}
+  /* Disable the scrollbar styles */
+  .show-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
 
-.show-scrollbar::-webkit-scrollbar-thumb {
-  background: #343a40; /* Color of the scrollbar thumb */
-  border-radius: 50px; /* Rounded corners for the thumb */
-}
+  .show-scrollbar::-webkit-scrollbar-track {
+    background: none;
+  }
 
-.show-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #343a40; /* Color of the scrollbar thumb on hover */
+  .show-scrollbar::-webkit-scrollbar-thumb {
+    background: none;
+  }
 }
