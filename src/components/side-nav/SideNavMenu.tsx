@@ -21,27 +21,10 @@ const SideNavMenu = () => {
     closed: { opacity: 0, x: "-100%" },
   };
 
-  const navItemsTop = [
+  const navItems = [
     { title: "Home", href: "/browse" },
     { title: "Series", href: "/tv" },
     { title: "Movies", href: "/movie" },
-    { title: "Originals", href: "" },
-    { title: "Just Added", href: "" },
-    { title: "Last Chance", href: "" },
-    { title: "Coming Soon", href: "" },
-    { title: "Trending Now", href: "" },
-  ];
-
-  const navItemsBottom = [
-    { title: "Action", href: "" },
-    { title: "Animation", href: "" },
-    { title: "Comedy", href: "" },
-    { title: "Crime", href: "" },
-    { title: "Documentaries", href: "" },
-    { title: "Drama", href: "" },
-    { title: "Fantasy & Sci-Fi", href: "" },
-    { title: "Horror", href: "" },
-    { title: "International", href: "" },
   ];
 
   return (
@@ -60,19 +43,7 @@ const SideNavMenu = () => {
             onClick={toggleSideNav}
           />
           <ul className="w-44">
-            {navItemsTop.map(({ title, href }) => (
-              <NavItem
-                key={title}
-                title={title}
-                href={href}
-                activeItem={activeItem === title}
-                onClick={() => handleActiveItemClick(title)}
-              />
-            ))}
-          </ul>
-          <hr className="border-t-2 border-gray-200 my-5" />
-          <ul className="w-44">
-            {navItemsBottom.map(({ title, href }) => (
+            {navItems.map(({ title, href }) => (
               <NavItem
                 key={title}
                 title={title}
